@@ -1,0 +1,701 @@
+/* --- COMPREHENSIVE COLOR PALETTES (THEME SYSTEM) --- */
+:root {
+    --bg: #090d16;
+    --card: #131c2e;
+    --text: #f1f5f9;
+    --text-dim: #64748b;
+    --primary: #8b5cf6;
+    --primary-hover: #a78bfa;
+    --border: rgba(255, 255, 255, 0.06);
+    --input: #1e293b;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --success: #10b981;
+}
+
+[data-theme="light"] {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --text-dim: #64748b;
+    --primary: #6d28d9;
+    --primary-hover: #7c3aed;
+    --border: #e2e8f0;
+    --input: #f1f5f9;
+    --shadow: rgba(0, 0, 0, 0.04);
+}
+
+/* --- CORE RESETS & GLOBAL SETUP --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- ROUTING & SCREEN VISIBILITY --- */
+.screen {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* --- ADVANCED MULTI-STAGE AUTHENTICATION UI --- */
+#login-screen {
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1e1b4b 0%, var(--bg) 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background-color: var(--card);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px var(--shadow);
+    border: 1px solid var(--border);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.auth-card h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.auth-card p {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Google Auth Button Specifications */
+.google-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background-color: var(--input);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.google-btn:hover {
+    background-color: var(--border);
+}
+
+.google-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- MAIN DASHBOARD SIDEBAR SYSTEM --- */
+.sidebar {
+    width: 90px;
+    background-color: var(--card);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.logo-small {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+#theme-toggle {
+    background: var(--input);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.avatar-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    object-fit: cover;
+    background: var(--input);
+}
+
+#display-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: #f43f5e;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logout-btn:hover {
+    background-color: rgba(244, 63, 94, 0.1);
+}
+
+/* --- MAIN WORKSPACE AREA --- */
+.content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.app-header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+#daily-quote {
+    font-style: italic;
+    color: var(--text-dim);
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.streak-badge {
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* --- CORE INTERACTIVE GRID SYSTEM --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--card);
+    border-radius: 24px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+
+/* Mood Grid Input Selector */
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mood-item {
+    background: var(--input);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 15px 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.mood-item:hover {
+    transform: translateY(-2px);
+}
+
+.mood-item .emoji {
+    font-size: 26px;
+}
+
+.mood-item.selected {
+    border-color: var(--primary);
+    background: rgba(139, 92, 246, 0.1);
+}
+
+textarea {
+    width: 100%;
+    height: 95px;
+    background-color: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    padding: 15px;
+    outline: none;
+    font-family: inherit;
+    resize: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+}
+
+/* Buttons Engine */
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.secondary-btn:hover {
+    background: rgba(139, 92, 246, 0.05);
+}
+
+/* --- PREMIUM FEATURE PLUGINS WIDGET UI --- */
+
+/* AI Insights Component */
+.insight-box {
+    background: var(--input);
+    padding: 15px;
+    border-radius: 14px;
+    font-size: 13px;
+    border-left: 4px solid var(--primary);
+    margin-bottom: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.metrics-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.metric-mini {
+    flex: 1;
+    background: var(--input);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.metric-mini h5 {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.metric-mini p {
+    font-size: 16px;
+    font-weight: 800;
+    margin-top: 2px;
+}
+
+/* Hydration Tracker Component */
+.water-widget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.water-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.water-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--input);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#water-progress {
+    width: 0%;
+    height: 100%;
+    background: #06b6d4;
+    border-radius: 10px;
+}
+
+/* Soundscape Selector Styling */
+#soundtrack-select {
+    width: 100%; 
+    padding: 14px 16px; 
+    border-radius: 12px; 
+    border: 1px solid var(--border); 
+    background-color: var(--input); 
+    color: var(--text); 
+    font-size: 14px; 
+    outline: none; 
+    font-weight: 600; 
+    cursor: pointer;
+}
+
+.audio-controls {
+    display: flex; 
+    gap: 10px;
+}
+
+.sound-toggle-btn {
+    background: var(--input);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 20px;
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.sound-toggle-btn:hover {
+    background: var(--border);
+}
+
+/* --- ANALYTICS CHART & JOURNAL HISTORY BLOCKS --- */
+.chart-card, .history-card {
+    grid-column: 1 / 3;
+}
+
+.chart-container {
+    position: relative;
+    height: 280px;
+    width: 100%;
+}
+
+.journal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.journal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background: var(--input);
+    border-radius: 16px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.journal-left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.journal-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.journal-mood-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+}
+
+.journal-date {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+.journal-note {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #f43f5e;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.delete-btn:hover {
+    background-color: rgba(244, 63, 94, 0.1);
+}
+
+.no-entries {
+    color: var(--text-dim);
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+    font-weight: 500;
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE STRUCTURAL OVERRIDES --- */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .chart-card, .history-card {
+        grid-column: 1 / 2;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        overflow-y: auto;
+    }
+    #app-screen {
+        flex-direction: column-reverse;
+    }
+    .sidebar {
+        width: 100%;
+        height: 70px;
+        flex-direction: row;
+        padding: 0 25px;
+        border-right: none;
+        border-top: 1px solid var(--border);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    .profile-container {
+        flex-direction: row;
+        width: auto;
+    }
+    #display-name {
+        display: none;
+    }
+    .content {
+        padding: 20px;
+        padding-bottom: 90px;
+        height: calc(100vh - 70px);
+    }
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .mood-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* --- SUB-PAGE TRANSITION ROUTER STYLING --- */
+.sub-page-view {
+    display: none;
+    animation: fadeInSubPage 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sub-page-view.active-page {
+    display: block;
+}
+
+.nav-menu-item {
+    background: transparent;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: all 0.25s ease;
+}
+
+.nav-menu-item:hover {
+    color: var(--text);
+    background: var(--input);
+}
+
+.nav-menu-item.active {
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@keyframes fadeInSubPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- SUB-PAGE TRANSITION ROUTER STYLING --- */
+.sub-page-view {
+    display: none;
+    animation: fadeInSubPage 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sub-page-view.active-page {
+    display: block;
+}
+
+.nav-menu-item {
+    background: transparent;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: all 0.25s ease;
+}
+
+.nav-menu-item:hover {
+    color: var(--text);
+    background: var(--input);
+}
+
+.nav-menu-item.active {
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@keyframes fadeInSubPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

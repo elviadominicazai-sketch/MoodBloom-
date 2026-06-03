@@ -1,0 +1,16 @@
+{
+  "short_name": "MoodBloom",
+  "name": "MoodBloom - Premium Workspace",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/5968/5968267.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#090d16",
+  "theme_color": "#9d7df8",
+  "display": "standalone",
+  "orientation": "portrait"
+}
